@@ -1,0 +1,30 @@
+# Setup w/ Cmnder
+https://medium.com/@nuno.caneco/zsh-running-on-cmder-498353a1495d
+
+# Symbolic link home
+ln -d /mnt/c/Users/XXXXX /home/XXXXXX/home
+
+# Install ssl 
+https://stackoverflow.com/questions/17846529/could-not-open-a-connection-to-your-authentication-agent
+
+# NPM Issues?
+sudo npm install -g @angular/cli --unsafe-perm=true --allow-root
+
+# _z_precmd:1: nice(5) failed: operation not permitted
+# https://github.com/rupa/z/issues/230
+By default, zsh tries to run background jobs at a lower priority, which Windows won't let it do. A good workaround is to put
+
+case $(uname -a) in
+   *Microsoft*) unsetopt BG_NICE ;;
+esac
+
+in your .zshrc file. That alters zsh's default behavior and fixes the problem entirely, in my experience.
+
+# Shut off beep on windows OhMyZsh
+# Add the following to ~/.zshrc
+unsetopt beep
+
+# [Cmder] Show only active windom in taskbar hover
+Settings -> General -> Task Bar -> Task Bar Buttons, Active Console Only
+
+# Copy and past issues?  Try the preview version of Cmder
